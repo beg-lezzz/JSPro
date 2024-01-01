@@ -34,14 +34,6 @@ class Client {
   }
 }
 
-// const chiefs = new Map(
-//     [
-//       ["Олег", new Set(["Пицца"])],
-//       ["Андрей", new Set(["Суши"])],
-//       ["Анна", new Set(["Десерт"])]
-//     ]
-// );
-
 const chiefs = new Map(
     [
       ["Олег", "Пицца"],
