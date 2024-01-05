@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<!--  <script src="1.js" defer></script>-->
+  <script src="2.js" defer></script>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto Light", sans-serif;
+      transition: all 0.5s ease-out;
+      text-decoration: none;
+    }
+    .wrapper {
+      padding-left: calc(50% - 670px);
+      padding-right: calc(50% - 670px);
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
+      gap: 5px;
+      position: relative;
+      transition: 300ms;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      gap: 10px;
+      text-align: left;
+      background: #ccc;
+      border-radius: 10px;
+    }
+    .product-name {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper" class="wrapper"></div>
+</body>
+</html>
