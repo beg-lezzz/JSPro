@@ -27,7 +27,7 @@
 
 let initialData = [
   {
-    id: Date.now(),
+    id: 1,
     product: "Apple iPhone 13",
     reviews: [
       {
@@ -41,7 +41,7 @@ let initialData = [
     ],
   },
   {
-    id: Date.now(),
+    id: 2,
     product: "Samsung Galaxy Z Fold 3",
     reviews: [
       {
@@ -51,7 +51,7 @@ let initialData = [
     ],
   },
   {
-    id: Date.now(),
+    id: 3,
     product: "Sony PlayStation 5",
     reviews: [
       {
@@ -64,6 +64,9 @@ let initialData = [
 
 function renderProducts(inputData) {
   let div = document.getElementById('wrapper');
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
   inputData.forEach((data) => {
     let productCard = document.createElement('div')
     productCard.classList.add('product-card')
@@ -86,20 +89,27 @@ function renderProducts(inputData) {
     productCard.appendChild(productName)
     productCard.appendChild(productReviews)
 
-    let inputReviewForm = document.createElement('form')
-    inputReviewForm.insertAdjacentHTML('beforeend', `<input type="text" id="ri${data.id}"><button onclick="addReview(${data.id})">Add Review</button>`)
+    let inputReview = document.createElement('input');
+    inputReview.setAttribute('id', `ri${data.id}`);
 
-    productCard.appendChild(inputReviewForm)
+    let btn = document.createElement('button');
+    btn.classList.add('add-button')
+    btn.innerText = 'Add review'
+    btn.addEventListener('click', () => addReview(data.id));
+
+    productCard.appendChild(inputReview)
+    productCard.appendChild(btn)
     div.appendChild(productCard)
   })
 }
 
 function addReview(id) {
-  let text = document.getElementById('ri' + id).value
+  let text = document.getElementById('ri' + id);
       let product = initialData.find(item => item.id === id);
-      product.reviews.push({id: Date.now(), text: `${text}`});
-      text.value = ''
-      renderProducts(initialData)
+      product.reviews.push({id: Date.now(), text: `${text.value}`});
+      text.value = '';
+  console.log(initialData);
+  renderProducts(initialData);
 }
 
-renderProducts(initialData)
+renderProducts(initialData);
