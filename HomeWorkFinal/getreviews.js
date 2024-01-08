@@ -10,9 +10,9 @@ function renderPage() {
     const productDiv = document.createElement('div');
     productDiv.innerHTML =
       `<h3>${productName}</h3>
-         <button id="btn${productName}" onclick="toggleReviews('${productName}')">Показать отзывы</button>
-         <div id="${productName}" style="display: none;"></div>
-        `;
+       <button id="btn${productName}" onclick="toggleReviews('${productName}')">Показать отзывы</button>
+       <div id="${productName}" style="display: none;"></div>
+      `;
     reviewsList.appendChild(productDiv);
   }
 }
@@ -24,7 +24,8 @@ function toggleReviews(productName) {
     reviewsDiv.style.display = 'block';
     reviewsDiv.innerHTML = products[productName].map(review =>
       `<p>${review.text}</p>
-      <button onclick="deleteReview('${productName}', '${review.id}')">Удалить</button>`
+       <button onclick="deleteReview('${productName}', '${review.id}')">Удалить</button>
+      `
     ).join('');
     toggleButton.innerText = 'Скрыть отзывы'
   } else {
