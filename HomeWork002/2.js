@@ -64,6 +64,7 @@ let initialData = [
 
 function renderProducts(inputData) {
   let div = document.getElementById('wrapper');
+  console.log(typeof div);
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
